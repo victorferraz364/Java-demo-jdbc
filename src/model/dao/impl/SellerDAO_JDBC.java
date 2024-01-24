@@ -92,10 +92,21 @@ public class SellerDAO_JDBC implements SellerDAO {
 		} 
 	}
 
-	@Override
-	public void deleteById(Seller id) {
-		// TODO Auto-generated method stub
-		
+	public void deleteById(Integer id) {
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
+			
+			st.setInt(1, id);
+			
+			st.executeUpdate();
+		}
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStament(st);
+		}
 	}
 
 	@Override
@@ -192,7 +203,6 @@ public class SellerDAO_JDBC implements SellerDAO {
 		return obj;
 	}
 
-	@Override
 	public List<Seller> fyndByDepartment(Department department) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -240,5 +250,7 @@ public class SellerDAO_JDBC implements SellerDAO {
 		
 
 	}
+
 	
 }
+
