@@ -1,33 +1,25 @@
 package application;
 
-import java.util.ArrayList;
+import model.dao.DaoFactory;
+import model.dao.DepartmentDAO;
+import model.entities.Department;
 
 public class Teste {
 
 	public static void main(String[] args) {
+		DepartmentDAO departmentDAO = DaoFactory.createDepatmentDAO();
 
-		String names[] = {"Victor", "Ferraz", "Oliveira", "Caralho"};
+		/*
+		Department novoDep = new Department(null, "Almoxarife");
+		departmentDAO.insert(novoDep);
+		System.out.println("Inserted. New id = " + novoDep.getId());
 
-		System.out.println(whoLikesIt(names));
-	}
-	
-	  public static String whoLikesIt(String[] names) {
-		  
-	      if (names.length == 0) {
-	        return "No one like this shit";
-	      }
-	      else if (names.length == 2) {
-	    	  
-	    	  return names[0] + " and " + names[1] + " like this";
-	      }
-	      
-	      else if (names.length == 4) {
-	    	  
-	    	  return (names[0] + ", " + names[1] +  " and " + names[3] + " Like this");
-	      }
-	return "";
-	      
-	    }
-	}
+	    */
+		
+		
+		Department dep = departmentDAO.findById(3);
+		System.out.println(dep);
+		
+	}}
 
 

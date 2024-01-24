@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Department implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private Integer Id;
+	private Integer id;
 	private String name;	
 	
 	//Constructos
@@ -13,17 +13,17 @@ public class Department implements Serializable{
 	}
 
 	public Department(Integer id, String name) {
-		Id = id;
+		this.id = id;
 		this.name = name;
 	}
 	
 	//Getters e Setters
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 	
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getName() {
@@ -37,7 +37,7 @@ public class Department implements Serializable{
 	// Haschcode and Equals
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -49,13 +49,13 @@ public class Department implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Department other = (Department) obj;
-		return Objects.equals(Id, other.Id);
+		return Objects.equals(id, other.id);
 	}
 	
 	@Override
 	public String toString() {
 		return "Department name: " + name
-				+ "\nDepartment ID: " + Id;
+				+ "\nDepartment ID: " + id;
 	}
 
 }
