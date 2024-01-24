@@ -8,7 +8,7 @@ import model.dao.SellerDAO;
 import model.entities.Department;
 import model.entities.Seller;
 
-public class Program {
+public class Program {	
 
 	public static void main(String[] args) {
 		
@@ -40,6 +40,12 @@ public class Program {
 		Seller novoCorno = new Seller(null, "MAcaco", "masqueico@gmail.com", new Date(), 2000.0, department);
 		sellerDAO.insert(novoCorno);
 		System.out.println("Inserted. New id = " + novoCorno.getId());
+		
+		System.out.println("\n=== TEST 5: seller update =====");
+		seller3 = sellerDAO.findById(1);
+		seller3.setName("Martha Waine");
+		sellerDAO.update(seller3);
+		System.out.println("Update completed");
 	}
 
 }
